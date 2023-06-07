@@ -8,45 +8,128 @@
 .container {
   display: flex;
   justify-content: center;
-  height: 10vh; /* Adjust the height as needed */
-  margin-top: 100px;
+  height: 19vh; /* Adjust the height as needed */
+  margin-top: 80px;
+  
 }
 
-.live-info {
+.live {
   display: flex;
   justify-content: center;
-  width: 1400px;
-  height: 319px;
+  width: 1684px;
+  height: 319.36px;
+  
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
-  background-color: #FFFFFF; /* Adjust the background color as needed */
   padding: 20px;
-}
-
-.current-box {
-  width: 50%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.current-info {
-  display: flex;
-  align-items: center;
-  height: 80%;
-}
-
-.current-info img {
-  height: 80%;
-}
-
-.temperature {
-  font-size: 120px;
   font-family: 'Inter', sans-serif;
-  font-weight: 600;
+  box-shadow: 0,0,0,1;
 }
 
-.location {
+  .live-info-box {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    margin-left: 5%;
+    margin-top: 1%;
+  }
+
+  .live-info{
+    display: flex;
+    align-items: center;
+    height: 50%;
+  }
+
+  .live-info img {
+    height: 130%;
+  }
+  .temperature {
+    display: flex;
+    align-items: flex-start;
+
+  }
+    .temperature-data {
+      margin-top: 5%;
+      font-size: 120px;
+
+
+    }
+
+    .temperature span {
+      font-size: 32px;
+      margin-top: 20%;
+
+    }
+  .uv-data p{
+    font-weight: 800;
+    
+    font-size: 32px;
+  }
+
+
+.right-data {
   font-size: 24px; /* Adjust the font size as needed */
   width: 50%;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 32px;
+  text-align: right;
+  margin-right: 5%;
+}
+
+
+/* For the today weater */
+.today-weather{
+  
+width: 933px;
+height: 444px;
+
+
+background: #FFFFFF;
+box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.25);
+border-radius: 20px;
+}
+
+.bottom-data{
+
+  display: flex;
+  justify-content: center;
+  width: 1684px;
+  height: 319.36px;
+}
+
+.recommended{
+  display: flex;
+  flex-direction: column;
+}
+
+.recommended-item {
+
+width: 645px;
+height: 136.5px;
+left: 1163px;
+top: 599px;
+
+background: rgba(255, 255, 255, 0.5);
+border-radius: 20px;
+}
+
+.recommended-transport {
+  width: 642.73px;
+  height: 274.95px;
+  left: 1165.27px;
+  top: 760.04px;
+  
+  background: #FFFFFF;
+  box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
 }
