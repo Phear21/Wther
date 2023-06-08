@@ -1,5 +1,6 @@
-<div class="container">
+<div class="home">
 
+<div class="container">
     <div class="live">
         <div class="live-info-box">
             <div class="live-info">
@@ -26,7 +27,7 @@
           กรุงเทพมหานคร, ประเทศไทย
         </span>
         <span>
-          09:41 AM GMT+07:00
+          {{ dateTime | date:'hh:mm a zzzz' }}
         </span>
         
       </div>
@@ -34,11 +35,24 @@
     </div>
   </div>
 
-
-
-<div class="container">
   <div class="bottom-data">
     <div  class="today-weather">
+
+      <div class="today-word">
+          สภาพอากาศวันนี้
+        <p>
+          กรุงเทพมหานคร, ประเทศไทย
+        </p>
+      </div>
+
+      <div  class="hourly-weater">
+   
+          <app-weather-box *ngFor="let data of weatherData" [title]="data.title" [temperature]="data.temperature" [condition]="data.condition" [boxStyles]="data.boxStyles"  [imageSrc]="data.imageSrc"></app-weather-box>
+    
+      </div>
+
+
+
     </div>
     <div class="recommended">
       <div class="recommended-item">
@@ -51,4 +65,3 @@
   </div>
 
 </div>
-  

@@ -1,0 +1,25 @@
+.weather-box {
+    display: flex;
+    flex-direction: row; /* Display boxes side by side */
+    align-items: center; /* Align items vertically in the center */
+    width: 20%;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  .weather-box img {
+    width: 50px; /* Adjust the width of the image as needed */
+    height: 50px; /* Adjust the height of the image as needed */
+    margin-right: 10px; /* Add some space between the image and text */
+  }
+  
+  .weather-box h2,
+  .weather-box p {
+    margin: 0;
+}
+.hourly-weater{
+    margin-left: 4%;
+    display: flex;
+    flex-direction: row;
+  }
+  
