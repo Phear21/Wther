@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HomepageComponent } from './component/homepage/homepage.component';
 import { WeatherBoxComponent } from './component/weather-box/weather-box/weather-box.component';
 import { CommonModule } from '@angular/common';
-
+import { RouterModule } from '@angular/router';
 // Remaining code...
 
 @NgModule({
@@ -18,7 +18,11 @@ import { CommonModule } from '@angular/common';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CommonModule
+    CommonModule,
+    RouterModule.forRoot([
+      {path:'', component: HomepageComponent}
+    ]
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]

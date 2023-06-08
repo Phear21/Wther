@@ -10,13 +10,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 1684px;
+  width: 100%;
+
 }
 
 .container {
   height: 319.36px;
   margin-top: 80px;
   width: 80%;
+  max-width: 1600px;
 }
 
 .live {
@@ -105,7 +107,7 @@
   justify-content: center;
   width: 100%;
   height: 100%;
-  max-width: 1300px;
+  max-width: 1600px;
   height: 445px;
   margin-top: 2%;
   gap: 2%;
