@@ -16,8 +16,9 @@ export class HomepageComponent implements OnInit {
   }
 
   weatherData = [
-    { title: 'Weather Box 1', temperature: '25°C', condition: 'Sunny', boxStyles: { background: '#FF0000' }, imageSrc: '../assets/Sunny.svg' },
-    { title: 'Weather Box 2', temperature: '20°C', condition: 'Cloudy', boxStyles: { background: '#00FF00' }, imageSrc: 'path/to/image2.jpg' },
-    { title: 'Weather Box 3', temperature: '15°C', condition: 'Rainy', boxStyles: { background: '#0000FF' }, imageSrc: 'path/to/image3.jpg' }
+    { title: 'ตอนเช้า', temperature: '37°C', condition: 'Sunny', boxStyles: { background: '#92CCFF' }, imageSrc: '../assets/Sunny.svg' },
+    { title: 'กลางวัน', temperature: '35°C', condition: 'Cloudy', boxStyles: { background: '#22A5E0' }, imageSrc: '../assets/Sunnywithcloud.svg '},
+    { title: 'ตอนเย็น', temperature: '28°C', condition: 'Rainy', boxStyles: { background: '#146C94' }, imageSrc: '../assets/Thunder.svg' },
+    { title: 'กลางคืน', temperature: '29°C', condition: 'Rainy', boxStyles: { background: '#010B1B' }, imageSrc: '../assets/CloudnyNight.svg' }
   ];
 }
