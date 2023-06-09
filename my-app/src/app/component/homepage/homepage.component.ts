@@ -4,7 +4,7 @@ import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.css'],
+  styleUrls: ['./homepage.component.css','./homepage.media.css'],
 })
 export class HomepageComponent implements OnInit {
   dateTime: Date | any;

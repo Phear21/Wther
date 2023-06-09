@@ -7,20 +7,23 @@ import { HomepageComponent } from './component/homepage/homepage.component';
 import { WeatherBoxComponent } from './component/weather-box/weather-box/weather-box.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { SignUpComponent } from './component/sign-up/sign-up.component';
 // Remaining code...
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
-    WeatherBoxComponent
+    WeatherBoxComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CommonModule,
     RouterModule.forRoot([
-      {path:'', component: HomepageComponent}
+      {path:'', component: SignUpComponent},
+      {path:'home',component:HomepageComponent}
     ]
     )
   ],

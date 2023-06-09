@@ -1,10 +1,8 @@
 :root {
-    --sunny: #92CCFF;
-  }
-  
+  --sunny: #92CCFF;
+}
 
-  body {
-    background-color: var(--sunny);
+body {
+  background: radial-gradient(circle at 50% 50%, #BEE1FF 0%, #92CCFF 100%);
 
-  }
-  
+}
