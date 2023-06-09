@@ -6,9 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
+  loadingAnimationClass = 'loadingpic';
+  // Get the class from the css first 
 
   ngOnInit(): void {
- 
+    setTimeout(()=>{
+      this.loadingAnimationClass= '';
+    },4500)
+
   }
 
 }

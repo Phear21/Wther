@@ -8,13 +8,28 @@ import { DatePipe } from '@angular/common';
 })
 export class HomepageComponent implements OnInit {
   dateTime: Date | any;
+  backgroundColor: string | undefined;
+
 
   constructor() {}
+  updateBackgroundColor(): void {
+    const currentHour = this.dateTime.getHours();
 
+    this.backgroundColor = currentHour >= 18 ? 'radial-gradient(60.56% 60.56% at 50% 39.44%, #8393A1 0%, #010B1B 83.33%)' : ' radial-gradient(50% 50% at 50% 50%, #BEE1FF 0%, #92CCFF 100%);';
+    document.documentElement.style.setProperty('--background-color', this.backgroundColor);
+  }
   ngOnInit(): void {
     this.dateTime = new Date();
+    setInterval(() => {
+      this.dateTime = new Date();
+      this.updateBackgroundColor();
+    }, 1000);
+    
+    // Then in the Oninit we will declare teh animation to stop
+
   }
 
+  
   weatherData = [
     { title: 'ตอนเช้า', temperature: '37°C', condition: 'Sunny', boxStyles: { background: '#92CCFF' }, imageSrc: '../assets/Sunny.svg' },
     { title: 'กลางวัน', temperature: '35°C', condition: 'Cloudy', boxStyles: { background: '#22A5E0' }, imageSrc: '../assets/Sunnywithcloud.svg '},

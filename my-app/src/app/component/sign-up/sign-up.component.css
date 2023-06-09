@@ -5,8 +5,12 @@
   }
   
 @keyframes smaller {
-    from { width: 100%;}
-    to {  width: 60%;}
+    0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(0.7);
+      }
 }
 @keyframes form-appear {
     0% {
@@ -18,6 +22,19 @@
       transform: translateY(0);
     }
   }
+
+
+@keyframes blink {
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
 
   
 .container{
@@ -32,21 +49,28 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* animation-name: example;
+    animation-name: example;
     animation-duration: 4s;
     animation-delay: 3s;
-    animation-fill-mode: forwards; */
+    animation-fill-mode: forwards;
 
 }
 .loadingpic {
+ 
     display: flex;
     justify-content:center ;
+    animation: blink 1.5s infinite;
 
 
 }
-.loadingpic img{
-
+.logosmaller{
+    display: flex;
+    justify-content:center ;
    
+}
+
+.logosmaller img {
+
     animation-name: smaller;
     animation-duration: 4s;
     animation-delay: 3s;
@@ -54,7 +78,7 @@
 }
 
 .loadingform {
-    margin-top: 5vh;
+   
     display: flex;
     justify-content: center;
     width: 100%;
@@ -68,10 +92,10 @@
     align-items: center; /* Add this line to center items horizontally */
     width: 30%;
     animation: form-appear 1s forwards;
-  animation-delay: 5s; 
-  animation-fill-mode: forwards;
-  opacity: 0;
-  transition: opacity 0.5s;
+    animation-delay: 5s; 
+    animation-fill-mode: forwards;
+    opacity: 0;
+    transition: opacity 0.5s;
 }
 
 .form input {
