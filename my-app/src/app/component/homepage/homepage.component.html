@@ -27,11 +27,11 @@
         </div>
   
       <div class="right-data">
-        <span>
+        <span class="country">
           กรุงเทพมหานคร, ประเทศไทย
         </span>
-        <span>
-          {{ dateTime | date:'hh:mm:s a zzzz' }}
+        <span class="time">
+          {{ dateTime | date:'hh:mm:ss a zzzz' }}
         </span>
         
       </div>
@@ -39,7 +39,7 @@
     </div>
   </div>
 
-  <div class="bottom-data">
+  <div class="container"><div class="bottom-data">
     <div  class="today-weather">
 
       <div class="today-word">
@@ -49,11 +49,12 @@
         </p>
       </div>
 
-      <div  class="hourly-weater">
+        <div  class="hourly-weater">
    
           <app-weather-box *ngFor="let data of weatherData" [title]="data.title" [temperature]="data.temperature" [condition]="data.condition" [boxStyles]="data.boxStyles"  [imageSrc]="data.imageSrc"></app-weather-box>
     
       </div>
+   
 
 
 
@@ -129,6 +130,7 @@
       </div>
 
     </div>
-  </div>
+  </div></div>
+  
 
 </div>
