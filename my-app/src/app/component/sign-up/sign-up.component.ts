@@ -14,7 +14,7 @@ export class SignUpComponent implements OnInit {
   loadingAnimationClass = 'loadingpic';
   profile: UnPromise<ReturnType<typeof liff.getProfile>> | undefined;
   
-
+  selectedGender!: string;
 
   constructor(private router:Router){}
 
@@ -22,8 +22,6 @@ export class SignUpComponent implements OnInit {
     setTimeout(()=>{
       this.loadingAnimationClass= '';
     },4500);
-
-    
 
       liff.init({
         liffId:'1661398192-oglAdg54'
@@ -57,11 +55,21 @@ export class SignUpComponent implements OnInit {
   }
 
   recordUserInput() {
-   
-    var ageInput = (document.getElementById("ageInput") as HTMLInputElement).value;
+    const ageInput = (document.getElementById("ageInput") as HTMLInputElement).value;
+    const genderInput = this.selectedGender;
+    const name  =  this.profile?.displayName
+    const userID  =  this.profile?.userId
 
-    console.log("User input:", ageInput);
+    const userData = { 
+      name: name,
+      age: ageInput,
+      gender: genderInput,
+      userID: userID
+    };
+    const jsonData = JSON.stringify(userData);
+    console.log(jsonData)
     // You can perform further actions with the user input here
   }
+  
 }
 

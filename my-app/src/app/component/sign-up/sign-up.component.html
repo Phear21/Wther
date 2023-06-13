@@ -16,11 +16,16 @@
             <p>โปรดระบุอายุของคุณ?</p>
             <input type="number" class='age' name="fname" min="0" max="99" id="ageInput"><br><br>
             <p>โปรดระบุเพศของคุณ??</p>
-      
-            <a  (click)="recordUserInput()" routerLink="/home">
+     
+            <select name="genderInput"[(ngModel)]="selectedGender"  class="gender" >
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+            <a  (click)="recordUserInput()" >
                 start
             </a>
-        
+            <!-- routerLink="/home" -->
               
         </form>
 
