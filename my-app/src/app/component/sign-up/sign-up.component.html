@@ -14,14 +14,13 @@
     <div class="loadingform">
         <form class="form" >
             <p>โปรดระบุอายุของคุณ?</p>
-            <input type="text" id="fname" name="fname"><br><br>
+            <input type="number" class='age' name="fname" min="0" max="99" id="ageInput"><br><br>
             <p>โปรดระบุเพศของคุณ??</p>
-            <input type="text" id="fname" name="fname"><br><br>
-
-            <a routerLink="/home">
+      
+            <a  (click)="recordUserInput()" routerLink="/home">
                 start
             </a>
-           
+        
               
         </form>
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
-
+import axios from 'axios';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
@@ -25,8 +25,16 @@ export class HomepageComponent implements OnInit {
       this.updateBackgroundColor();
     }, 1000);
     
-    // Then in the Oninit we will declare teh animation to stop
 
+   
+    // Then in the Oninit we will declare teh animation to stop
+    axios.get('https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid=7aee4d838ce8561cf5d3d9a5cd7bca9e')
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
   }
 
   

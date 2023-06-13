@@ -4,12 +4,21 @@
     to { height: 40vh;}
   }
   
+  
 @keyframes smaller {
     0% {
         transform: scale(1);
       }
       100% {
         transform: scale(0.7);
+      }
+}
+@keyframes smaller2 {
+    0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(0.5);
       }
 }
 @keyframes form-appear {
@@ -36,7 +45,9 @@
     }
 }
 
-  
+body {
+    background-color: var(--background-color);
+  }
 .container{
   
     height: 100vh;
@@ -131,4 +142,48 @@
     line-height: 24px;
 
     color: #000000;
+  }
+
+  .age{
+   
+    padding-left: 1vw;
+
+  }
+  .gender{
+   
+    padding-left: 1vw;
+
+  }
+  @media only screen and (max-width:800px)  {
+    .age{
+   
+        padding-left: 2vw;
+    
+      }
+      .gender{
+   
+        padding-left: 2vw;
+    
+      }
+    .form{
+
+   
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; /* Add this line to center items horizontally */
+        width: 50%;
+        animation: form-appear 1s forwards;
+        animation-delay: 5s; 
+        animation-fill-mode: forwards;
+        opacity: 0;
+        transition: opacity 0.5s;
+    }
+    .logosmaller img {
+
+        animation-name: smaller2;
+        animation-duration: 4s;
+        animation-delay: 3s;
+        animation-fill-mode: forwards;
+    }
   }

@@ -8,22 +8,26 @@ import { WeatherBoxComponent } from './component/weather-box/weather-box/weather
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SignUpComponent } from './component/sign-up/sign-up.component';
+import { WeeklypageComponent } from './component/weeklypage/weeklypage.component';
 // Remaining code...
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
     WeatherBoxComponent,
-    SignUpComponent
+    SignUpComponent,
+    WeeklypageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CommonModule,
+    FormsModule,
     RouterModule.forRoot([
       {path:'', component: SignUpComponent},
-      {path:'home',component:HomepageComponent}
+      {path:'home',component:HomepageComponent},
+      {path:'weekly',component:WeeklypageComponent}
     ]
     )
   ],
