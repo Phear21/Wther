@@ -12,9 +12,7 @@ origins = [
     "http://localhost:4200/home",
 ]
 
-# @app.get("/")
-# def read_root():
-#     return {"Hello": "World"}
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,

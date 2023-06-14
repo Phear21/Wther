@@ -3,35 +3,38 @@ import { DatePipe } from '@angular/common';
 import axios from 'axios';
 
 //This will use for the Mapping data from the json file therefore I need to make the interface for that. 
-  interface WeatherData {
-    location: {
-      name: string;
-      country: string;
-      localtime: string;
-    };
-    current: {
-      temp_c: number;
-      temp_f: number;
-    };
-    condition: {
-      text: string;
-    };
-    uv: number;
-    wind_kph: number;
-    wind_dir: string;
-    humidity: number;
-    cloud: number;
-    hour: {
-      time: string;
-      temp_c: number;
-      temp_f: number;
-    }[];
-    day: {
-      day: string;
-      weather: number;
-    }[];
-  }
-  
+interface WeatherData {
+  location: {
+    name: string;
+    country: string;
+    localtime: string;
+  };
+  current: {
+    temp_c: number;
+    temp_f: number;
+  };
+  condition: {
+    text: string;
+  };
+  uv: number;
+  wind_kph: number;
+  wind_dir: string;
+  humidity: number;
+  cloud: number;
+  hour: {
+    time: string;
+    temp_c: number;
+    temp_f: number;
+    condition: string;
+    icon: string;
+    code: number;
+  }[];
+  day: {
+    day: string;
+    weather: number;
+  }[];
+}
+
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
@@ -51,11 +54,11 @@ export class HomepageComponent implements OnInit {
     }, 1000);
     // Then in the Oninit we will declare teh animation to sto
     //trying to call the api 
-    axios.get('http://127.0.0.1:8000/Thailand',{withCredentials: true})
+    axios.get('https://backend-botnoi.onrender.com/Thailand',{withCredentials: true})
       .then(response => {
         this.weatherAPI=response.data;
         console.log(this.weatherAPI)
-        console.log(this.weatherAPI.condition)
+        console.log(this.weatherAPI.hour[0].condition)
         this.UpdateWeatherData();
       })
       .catch(error => {
@@ -87,22 +90,42 @@ export class HomepageComponent implements OnInit {
         return '../assets/Rainy.svg';
       } 
       else if (condition === 'Partly cloudy'){
-        return '../assets/Sunnywithcloud.svg';
+        return '../assets/PartlyCloud.svg';
       }
       else {
         return '../assets/Default.svg';
       }
     }
 
-  
+    getItemimage(condition:string):any {
+    
+      if (condition === 'Sunny'){
+        return '../assets/Sunny.svg'
+      }
+      else if (condition === 'Cloudy'){
+        return '../assets/Sunnywithcloud.svg'
+      }
+       else if (condition === 'Rainy') {
+        return '../assets/Rainy.svg';
+      } 
+      else if (condition === 'Partly cloudy'){
+        return '../assets/PartlyCloud.svg';
+      }
+      else {
+        return '../assets/Default.svg';
+      }
+    }
 
+    
+  
+//This have to be in the function since the this. stuff not work with the outside
   UpdateWeatherData():void{
     this.weatherData = [
       // { title: 'ตอนเช้า', temperature: '37°C', condition:'Cloudy' , boxStyles: { background: '#92CCFF' }, imageSrc: this.getWeatherImage(this.weatherAPI.quarters[0].summary)},
-      { title: 'ตอนเช้า', temperature: '35°C', condition: 'Cloudy', boxStyles: { background: '#22A5E0' }, imageSrc: '../assets/Sunnywithcloud.svg '},
-      { title: 'กลางวัน', temperature: '35°C', condition: 'Cloudy', boxStyles: { background: '#22A5E0' }, imageSrc: '../assets/Sunnywithcloud.svg '},
-      { title: 'ตอนเย็น', temperature: '28°C', condition: 'Rainy', boxStyles: { background: '#146C94' }, imageSrc: '../assets/Thunder.svg' },
-      { title: 'กลางคืน', temperature: '29°C', condition: 'Rainy', boxStyles: { background: '#010B1B' }, imageSrc: '../assets/CloudnyNight.svg' }
+      { title: 'ตอนเช้า', temperature: '35°C', condition: this.weatherAPI.hour[0].condition, boxStyles: { background: '#22A5E0' }, imageSrc: this.getWeatherImage(this.weatherAPI.hour[0].condition)},
+      { title: 'กลางวัน', temperature: '35°C', condition: 'Cloudy', boxStyles: { background: '#22A5E0' }, imageSrc: this.getWeatherImage(this.weatherAPI.hour[2].condition)},
+      { title: 'ตอนเย็น', temperature: '28°C', condition: 'Rainy', boxStyles: { background: '#146C94' }, imageSrc: this.getWeatherImage(this.weatherAPI.hour[3].condition)},
+      { title: 'กลางคืน', temperature: '29°C', condition: 'Rainy', boxStyles: { background: '#010B1B' }, imageSrc: this.getWeatherImage(this.weatherAPI.hour[4].condition) }
     ];
   
   }

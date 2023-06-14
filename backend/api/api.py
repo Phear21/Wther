@@ -13,6 +13,7 @@ response_7Days=requests.get(URL_7DAYS).json()
 def responseTest(country):
     URL = "http://api.weatherapi.com/v1/forecast.json?key="+API_KEY2+"&q="+country+"&days=7"
     result=requests.get(URL).json()
+
     return result
 
 def resultToDay(result):
@@ -38,32 +39,37 @@ def resultToDay(result):
             {
                 "time": result["forecast"]["forecastday"][0]["hour"][9]["time"],
                 "temp_c": result["forecast"]["forecastday"][0]["hour"][9]["temp_c"],
-                "temp_f": result["forecast"]["forecastday"][0]["hour"][9]["temp_f"]
+                "temp_f": result["forecast"]["forecastday"][0]["hour"][9]["temp_f"],
+                "condition" : result["forecast"]["forecastday"][0]["hour"][9]["condition"]
             },
             {
                 "time": result["forecast"]["forecastday"][0]["hour"][12]["time"],
                 "temp_c": result["forecast"]["forecastday"][0]["hour"][12]["temp_c"],
-                "temp_f": result["forecast"]["forecastday"][0]["hour"][12]["temp_f"]
+                "temp_f": result["forecast"]["forecastday"][0]["hour"][12]["temp_f"],
+                "condition" : result["forecast"]["forecastday"][0]["hour"][12]["condition"]
             },
             {
                 "time": result["forecast"]["forecastday"][0]["hour"][15]["time"],
                 "temp_c": result["forecast"]["forecastday"][0]["hour"][15]["temp_c"],
-                "temp_f": result["forecast"]["forecastday"][0]["hour"][15]["temp_f"]
+                "temp_f": result["forecast"]["forecastday"][0]["hour"][15]["temp_f"],
+                "condition" : result["forecast"]["forecastday"][0]["hour"][15]["condition"]
             },
             {
                 "time": result["forecast"]["forecastday"][0]["hour"][18]["time"],
                 "temp_c": result["forecast"]["forecastday"][0]["hour"][18]["temp_c"],
-                "temp_f": result["forecast"]["forecastday"][0]["hour"][18]["temp_f"]
+                "temp_f": result["forecast"]["forecastday"][0]["hour"][18]["temp_f"],
+                "condition" : result["forecast"]["forecastday"][0]["hour"][18]["condition"]
             },
             {
                 "time": result["forecast"]["forecastday"][0]["hour"][21]["time"],
                 "temp_c": result["forecast"]["forecastday"][0]["hour"][21]["temp_c"],
-                "temp_f": result["forecast"]["forecastday"][0]["hour"][21]["temp_f"]
+                "temp_f": result["forecast"]["forecastday"][0]["hour"][21]["temp_f"],
+                "condition" : result["forecast"]["forecastday"][0]["hour"][21]["condition"]
             },
             {
                 "time": result["forecast"]["forecastday"][1]["hour"][0]["time"],
                 "temp_c": result["forecast"]["forecastday"][1]["hour"][0]["temp_c"],
-                "temp_f": result["forecast"]["forecastday"][1]["hour"][0]["temp_f"]
+                "temp_f": result["forecast"]["forecastday"][1]["hour"][0]["temp_f"],
             },
             {
                 "time": result["forecast"]["forecastday"][1]["hour"][3]["time"],
@@ -101,4 +107,5 @@ def resultToDay(result):
             }
         ]
     }
+    
     return resultToDay_json
