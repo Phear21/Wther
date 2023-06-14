@@ -1,0 +1,135 @@
+<div class="home">
+
+  <div class="container">
+      <div class="live">
+          <div class="live-info-box">
+              <div class="live-info">
+                <div class="top-live">
+                  <img src="../assets/Sunny.svg" alt="">
+                  <div class="temperature">
+                    <p class="temperature-data">
+                      37
+                    </p>
+                    <span>
+                      &nbsp;&#8451;
+                    </span>
+    
+                  </div>
+                </div>
+      
+                <div class="uv-data">
+                  <p>แดดแรง </p>
+              </div>
+  
+              </div>
+         
+            
+          </div>
+    
+        <div class="right-data">
+          <span>
+            กรุงเทพมหานคร, ประเทศไทย
+          </span>
+          <span>
+            {{ dateTime | date:'hh:mm a zzzz' }}
+          </span>
+          
+        </div>
+   
+      </div>
+    </div>
+  
+    <div class="bottom-data">
+      <div  class="today-weather">
+  
+        <div class="today-word">
+            สภาพอากาศวันนี้
+          <p>
+            กรุงเทพมหานคร, ประเทศไทย
+          </p>
+        </div>
+  
+        <div  class="hourly-weater">
+     
+            <app-weather-box *ngFor="let data of weatherData" [title]="data.title" [temperature]="data.temperature" [condition]="data.condition" [boxStyles]="data.boxStyles"  [imageSrc]="data.imageSrc"></app-weather-box>
+      
+        </div>
+  
+  
+  
+      </div>
+      <div class="recommended">
+        <div class="recommended-item">
+          <div class="recomend-box">
+            สิ่งของแนะนำ
+            <img src="../assets/sunglasses 1.svg" alt="">
+            <img src="../assets/sun-block 1.svg" alt="">
+            <img src="../assets/umbrella (1) 1.svg" alt="">
+          </div>
+       
+        </div>
+        <div class="more-detaibox">
+          <div class="more-detail">
+            <div class="grid-item">
+              <div class="grid-left">
+                <h3>
+                  UV Index
+                </h3> 
+                  <p>
+                    7 of 10
+                  </p>              
+              </div>
+              <div  class="grid-right">
+                <img src="../assets/Sunny.svg" alt="">
+              </div>
+            
+            </div>
+            <div class="grid-item">
+              <div class="grid-left">
+                <h3>
+                  Humidity
+                </h3> 
+                  <p>
+                    64 %
+                  </p>              
+              </div>
+              <div  class="grid-right">
+                <img src="../assets/Rain.svg" alt="">
+              </div>
+            
+            </div>
+            <div class="grid-item">
+              <div class="grid-left">
+                <h3>
+                  Wind
+                </h3> 
+                  <p>
+                    SW 12 km/h
+                  </p>              
+              </div>
+              <div  class="grid-right">
+                <img src="../assets/Wind.svg" alt="">
+              </div>
+             
+            </div>
+            <div class="grid-item">
+              <div class="grid-left">
+                <h3>
+                  Cloud Cover
+                </h3> 
+                  <p>
+                    78%
+                  </p>              
+              </div>
+              <div  class="grid-right">
+                <img src="../assets/Storm.svg" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  
+  </div>
+  

@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap');
+
+.p {
+  color: white;
+  font-family: 'Inter', sans-serif;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 1684px;
+}
+
+.container {
+  height: 319.36px;
+  margin-top: 80px;
+  width: 80%;
+}
+
+.live {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  padding: 10px;
+  font-family: 'Inter', sans-serif;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  
+}
+
+  .live-info-box {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+
+    margin-top: 1%;
+
+  }
+  .live-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  
+
+  }
+    .top-live{
+      display: flex;
+      align-items: center;
+      height: 50%;
+
+    }
+
+    .live-info img {
+      height: 150%;
+      width: 54%;
+    }
+
+      .temperature {
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .temperature-data {
+        margin-top: 5%;
+        font-size: 120px;
+      }
+
+      .temperature span {
+        font-size: 32px;
+        margin-top: 20%;
+      }
+
+      .uv-data p {
+        font-weight: 800;
+        font-size: 32px;
+        margin-top: -30px;
+        margin-left: 55%;
+      }
+
+      .right-data {
+        font-size: 24px; /* Adjust the font size as needed */
+        width: 60%;
+        font-family: 'Inter', sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 32px;
+        text-align: right;
+        margin-right: 5%;
+      }
+      
+      
+.bottom-data {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  max-width: 1300px;
+  height: 445px;
+  margin-top: 2%;
+  gap: 2%;
+}
+
+  .today-weather {
+    width: 150%;
+
+    background: #FFFFFF;
+    box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+  }
+    .today-word{
+      margin-top: 3%;
+      margin-left: 4%;
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 32px;
+      margin-bottom: -2%;
+    }
+    .today-word p {
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 24px;
+      color: #848484;
+    }
+    .hourly-weater{
+
+      display: flex;
+      flex-direction: row;
+      gap: 2%;
+      align-items: center;
+      justify-content: center;
+
+    }
+
+  .recommended {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 5%;
+  }
+
+  .recommended-item {
+    width: 100%;
+    height: 30%;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+  }
+  .recomend-box{
+      margin-left: 20px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 20px;
+    }
+    .recomend-box img{
+      margin-left: 10px;
+      margin-right: 10px;
+      width: 19%;
+    }
+
+
+  .more-detaibox{
+    height: 70%;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  .more-detail{
+    height: 70%;
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1.2fr 1.2fr; /* Two columns with equal width */
+    grid-template-rows: 0.6fr 0.6fr; /* Two rows with equal height */
+    grid-gap: 20px; /* Adjust the grid gap as needed */
+  
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  .grid-item {
+    background-color: #CEE8FF;
+
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    max-width: 100%;
+  }
+
+  .grid-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10%;
+    margin-left: 5%;
+    text-align: start;
+    width: 60%;
+    
+  }
+  .grid-left h3{
+    font-size: 20px;
+    font-weight: 600;
+
+    
+  }
+
+  .grid-right{ 
+    padding-left: 10px;
+
+  }
+  .grid-right img{
+
+    width:80%;
+  }
