@@ -1,6 +1,11 @@
 <div class="home" >
 
+    <app-nav-bar></app-nav-bar>
+
+ 
 <div class="container">
+   
+
     <div class="live">
         <div class="live-info-box">
             <div class="live-info">
@@ -81,7 +86,7 @@
                 ดัชนีรังสี UV
               </h3> 
                 <p>
-                  7 of 10
+                  {{ weatherAPI.uv}} out of 10
                 </p>              
             </div>
             <div  class="grid-right">
@@ -95,7 +100,7 @@
                 ความชื้น
               </h3> 
                 <p>
-                  64 %
+                  {{ weatherAPI.humidity}} %
                 </p>              
             </div>
             <div  class="grid-right">
@@ -106,10 +111,10 @@
           <div class="grid-item">
             <div class="grid-left">
               <h3>
-                แรงลม
+                แรงลม {{ weatherAPI.wind_dir}}
               </h3> 
                 <p>
-                  SW 12 km/h
+                  {{ weatherAPI.wind_kph}} km/h
                 </p>              
             </div>
             <div  class="grid-right">
@@ -123,7 +128,7 @@
                 เมฆปกคลุม
               </h3> 
                 <p>
-                  78%
+                  {{ weatherAPI.cloud}}%
                 </p>              
             </div>
             <div  class="grid-right">

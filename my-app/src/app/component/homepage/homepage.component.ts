@@ -26,8 +26,7 @@ interface WeatherData {
     temp_c: number;
     temp_f: number;
     condition: string;
-    icon: string;
-    code: number;
+
   }[];
   day: {
     day: string;
@@ -92,35 +91,42 @@ export class HomepageComponent implements OnInit {
       else if (condition === 'Partly cloudy'){
         return '../assets/PartlyCloud.svg';
       }
+      else if (condition ==='Patchy rain possible'){
+        return '../assets/Sunny Rain.svg'
+      }
       else {
         return '../assets/Default.svg';
       }
     }
 
-    getItemimage(condition:string):any {
+    // getItemimage(condition:string):any {
     
-      if (condition === 'Sunny'){
-        return '../assets/Sunny.svg'
-      }
-      else if (condition === 'Cloudy'){
-        return '../assets/Sunnywithcloud.svg'
-      }
-       else if (condition === 'Rainy') {
-        return '../assets/Rainy.svg';
-      } 
-      else if (condition === 'Partly cloudy'){
-        return '../assets/PartlyCloud.svg';
-      }
-      else {
-        return '../assets/Default.svg';
-      }
-    }
+    //   if (condition === 'Sunny'){
+    //     return '../assets/Sunny.svg'
+    //   }
+    //   else if (condition === 'Cloudy'){
+    //     return '../assets/Sunnywithcloud.svg'
+    //   }
+    //    else if (condition === 'Rainy') {
+    //     return '../assets/Rainy.svg';
+    //   } 
+      
+    //   else if (condition === 'Partly cloudy'){
+    //     return '../assets/PartlyCloud.svg';
+    //   }
+    //   else {
+    //     return '../assets/Default.svg';
+    //   }
+    // }
 
     
   
 //This have to be in the function since the this. stuff not work with the outside
   UpdateWeatherData():void{
     this.weatherData = [
+
+//the thing below have to be able to check the time 
+
       // { title: 'ตอนเช้า', temperature: '37°C', condition:'Cloudy' , boxStyles: { background: '#92CCFF' }, imageSrc: this.getWeatherImage(this.weatherAPI.quarters[0].summary)},
       { title: 'ตอนเช้า', temperature: '35°C', condition: this.weatherAPI.hour[0].condition, boxStyles: { background: '#22A5E0' }, imageSrc: this.getWeatherImage(this.weatherAPI.hour[0].condition)},
       { title: 'กลางวัน', temperature: '35°C', condition: 'Cloudy', boxStyles: { background: '#22A5E0' }, imageSrc: this.getWeatherImage(this.weatherAPI.hour[2].condition)},

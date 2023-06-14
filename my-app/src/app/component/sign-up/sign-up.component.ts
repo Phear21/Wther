@@ -54,6 +54,9 @@ export class SignUpComponent implements OnInit {
 
   }
 
+
+  // log in เข้า มา ส่ง user id ไปเช็คก่อน 
+  // แล้วก็ค่อย ถ้ายังไม่ได้ log in ก็ให้เก็บอายุ
   recordUserInput() {
     const ageInput = (document.getElementById("ageInput") as HTMLInputElement).value;
     const genderInput = this.selectedGender;

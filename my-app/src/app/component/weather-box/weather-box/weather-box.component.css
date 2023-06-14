@@ -23,13 +23,14 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     box-shadow: 0,0,0,1;
 
   
   }
   
   .box-content img {
-    width: 100%; /* Adjust the width of the image as needed */
+    width: 80%; /* Adjust the width of the image as needed */
 
  
   }
