@@ -5,21 +5,20 @@
         <div class="live-info-box">
             <div class="live-info">
               <div class="top-live">
-                <img src="../assets/Sunny.svg" alt="">
+                <img [src]="getWeatherImage(weatherAPI.current.weather)" alt="">
                 
                 <div class="temperaturebox">
                   <div class="temperature">
                     <p class="temperature-data">
-                      37
+                      {{ weatherAPI.current.temperature }}
                     </p>
                     <span>
                       &nbsp;&#8451;
                     </span>
-    
                   </div>
 
-                  <div class="uv-data">
-                    <p>แดดแรง </p>
+                  <div class="weather-detail">
+                    <p>  {{ weatherAPI.current.weather }} </p>
                 </div>
 
                 </div>

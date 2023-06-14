@@ -21,8 +21,7 @@
 
 }
 
-.container {
- }
+
 
 .live {
   display: flex;
@@ -65,9 +64,9 @@
 
     }
 
-    .live-info img {
-      height: 150%;
-      width: 54%;
+    .top-live img {
+   
+      width: 47%;
     }
 
       .temperature {
@@ -85,7 +84,7 @@
         margin-top: 20%;
       }
 
-      .uv-data p {
+      .weather-detail p {
         font-weight: 800;
         font-size: 32px;
         margin-top: -20%;

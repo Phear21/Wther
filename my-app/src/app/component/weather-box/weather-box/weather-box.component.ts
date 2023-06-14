@@ -8,8 +8,8 @@ import { CommonModule } from '@angular/common';
 export class WeatherBoxComponent {
   @Input() title: string = '';
   @Input() temperature: string = '';
-  @Input() condition: string = '';
+  @Input() condition: any = '';
   @Input() boxStyles: any = {};
-  @Input() imageSrc: string = '';
+  @Input() imageSrc: any = '';
   constructor() { }
 }
