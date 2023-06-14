@@ -60,7 +60,9 @@
     .top-live{
       display: flex;
       align-items: center;
+      justify-content: center;
       height: 50%;
+      width: 100%;
 
     }
 
@@ -68,27 +70,35 @@
    
       width: 47%;
     }
+    .temperaturebox{
+      width: 50%;
+    }
 
       .temperature {
         display: flex;
         align-items: flex-start;
+        width: 100%;
       }
 
       .temperature-data {
         margin-top: 5%;
         font-size: 120px;
       }
-
+  
       .temperature span {
         font-size: 32px;
         margin-top: 20%;
       }
-
+      .weather-detail {
+        width: 100%;
+      }
       .weather-detail p {
         font-weight: 800;
         font-size: 32px;
         margin-top: -20%;
         margin-left: 5%;
+
+
  
       }
 

@@ -15,7 +15,6 @@ user = APIRouter()
 API_KEY2 = config("API_KEY_WEATHER")
 
 
-
 # ********************** แก้ **********************
 # @user.get("/weather")
 # def get_weather():

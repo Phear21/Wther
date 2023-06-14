@@ -5,12 +5,12 @@
         <div class="live-info-box">
             <div class="live-info">
               <div class="top-live">
-                <img [src]="getWeatherImage(weatherAPI.current.weather)" alt="">
+                <img [src]="getWeatherImage(weatherAPI.condition.text)" alt="">
                 
                 <div class="temperaturebox">
                   <div class="temperature">
                     <p class="temperature-data">
-                      {{ weatherAPI.current.temperature }}
+                      {{ this.weatherAPI.current.temp_c }}
                     </p>
                     <span>
                       &nbsp;&#8451;
@@ -18,7 +18,7 @@
                   </div>
 
                   <div class="weather-detail">
-                    <p>  {{ weatherAPI.current.weather }} </p>
+                    <p>  {{ weatherAPI.condition.text}} </p>
                 </div>
 
                 </div>

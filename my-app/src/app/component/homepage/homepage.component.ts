@@ -4,23 +4,31 @@ import axios from 'axios';
 
 //This will use for the Mapping data from the json file therefore I need to make the interface for that. 
   interface WeatherData {
+    location: {
+      name: string;
+      country: string;
+      localtime: string;
+    };
     current: {
-      weather: string;
-      temperature: number;
-      uv: number;
-      humidity: number;
-      wind_speed: number;
-      cloudiness: number;
+      temp_c: number;
+      temp_f: number;
     };
-    recommendations: {
-      clothing: string;
-      accessories: string;
+    condition: {
+      text: string;
     };
-    quarters: {
+    uv: number;
+    wind_kph: number;
+    wind_dir: string;
+    humidity: number;
+    cloud: number;
+    hour: {
       time: string;
-      summary: string;
-      temperature: number;
-      weather: string;
+      temp_c: number;
+      temp_f: number;
+    }[];
+    day: {
+      day: string;
+      weather: number;
     }[];
   }
   
@@ -43,11 +51,11 @@ export class HomepageComponent implements OnInit {
     }, 1000);
     // Then in the Oninit we will declare teh animation to sto
     //trying to call the api 
-    axios.get('http://localhost:9000/data',{withCredentials: true})
+    axios.get('http://127.0.0.1:8000/Thailand',{withCredentials: true})
       .then(response => {
         this.weatherAPI=response.data;
-        console.log( this.weatherAPI)
-        console.log(this.weatherAPI.quarters[0].summary);
+        console.log(this.weatherAPI)
+        console.log(this.weatherAPI.condition)
         this.UpdateWeatherData();
       })
       .catch(error => {
@@ -90,7 +98,8 @@ export class HomepageComponent implements OnInit {
 
   UpdateWeatherData():void{
     this.weatherData = [
-      { title: 'ตอนเช้า', temperature: '37°C', condition:'Cloudy' , boxStyles: { background: '#92CCFF' }, imageSrc: this.getWeatherImage(this.weatherAPI.quarters[0].summary)},
+      // { title: 'ตอนเช้า', temperature: '37°C', condition:'Cloudy' , boxStyles: { background: '#92CCFF' }, imageSrc: this.getWeatherImage(this.weatherAPI.quarters[0].summary)},
+      { title: 'ตอนเช้า', temperature: '35°C', condition: 'Cloudy', boxStyles: { background: '#22A5E0' }, imageSrc: '../assets/Sunnywithcloud.svg '},
       { title: 'กลางวัน', temperature: '35°C', condition: 'Cloudy', boxStyles: { background: '#22A5E0' }, imageSrc: '../assets/Sunnywithcloud.svg '},
       { title: 'ตอนเย็น', temperature: '28°C', condition: 'Rainy', boxStyles: { background: '#146C94' }, imageSrc: '../assets/Thunder.svg' },
       { title: 'กลางคืน', temperature: '29°C', condition: 'Rainy', boxStyles: { background: '#010B1B' }, imageSrc: '../assets/CloudnyNight.svg' }
