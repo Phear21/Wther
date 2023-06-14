@@ -9,15 +9,21 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SignUpComponent } from './component/sign-up/sign-up.component';
 import { WeeklypageComponent } from './component/weeklypage/weeklypage.component';
+import { HourPageComponent } from './component/hour-page/hour-page.component';
 // Remaining code...
 import { FormsModule } from '@angular/forms';
+import { NavBarComponent } from './component/nav-bar/nav-bar.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
     WeatherBoxComponent,
     SignUpComponent,
-    WeeklypageComponent
+    WeeklypageComponent,
+    HourPageComponent,
+    NavBarComponent
+    
+    
   ],
   imports: [
     BrowserModule,
@@ -27,7 +33,8 @@ import { FormsModule } from '@angular/forms';
     RouterModule.forRoot([
       {path:'', component: SignUpComponent},
       {path:'home',component:HomepageComponent},
-      {path:'weekly',component:WeeklypageComponent}
+      {path:'weekly',component:WeeklypageComponent},
+      {path:'hour', component:HourPageComponent}
     ]
     )
   ],
