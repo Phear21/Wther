@@ -13,6 +13,7 @@ import { HourPageComponent } from './component/hour-page/hour-page.component';
 // Remaining code...
 import { FormsModule } from '@angular/forms';
 import { NavBarComponent } from './component/nav-bar/nav-bar.component';
+import { ItemboxComponent } from './component/itembox/itembox.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { NavBarComponent } from './component/nav-bar/nav-bar.component';
     SignUpComponent,
     WeeklypageComponent,
     HourPageComponent,
-    NavBarComponent
+    NavBarComponent,
+    ItemboxComponent
     
     
   ],
@@ -37,6 +39,9 @@ import { NavBarComponent } from './component/nav-bar/nav-bar.component';
       {path:'hour', component:HourPageComponent}
     ]
     )
+  ],
+  exports:[
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

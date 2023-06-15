@@ -40,31 +40,31 @@ def resultToDay(result):
                 "time": result["forecast"]["forecastday"][0]["hour"][9]["time"],
                 "temp_c": result["forecast"]["forecastday"][0]["hour"][9]["temp_c"],
                 "temp_f": result["forecast"]["forecastday"][0]["hour"][9]["temp_f"],
-                "condition" : result["forecast"]["forecastday"][0]["hour"][9]["condition"]
+                "condition" : result["forecast"]["forecastday"][0]["hour"][9]["condition"]["text"]
             },
             {
                 "time": result["forecast"]["forecastday"][0]["hour"][12]["time"],
                 "temp_c": result["forecast"]["forecastday"][0]["hour"][12]["temp_c"],
                 "temp_f": result["forecast"]["forecastday"][0]["hour"][12]["temp_f"],
-                "condition" : result["forecast"]["forecastday"][0]["hour"][12]["condition"]
+                "condition" : result["forecast"]["forecastday"][0]["hour"][12]["condition"]["text"]
             },
             {
                 "time": result["forecast"]["forecastday"][0]["hour"][15]["time"],
                 "temp_c": result["forecast"]["forecastday"][0]["hour"][15]["temp_c"],
                 "temp_f": result["forecast"]["forecastday"][0]["hour"][15]["temp_f"],
-                "condition" : result["forecast"]["forecastday"][0]["hour"][15]["condition"]
+                "condition" : result["forecast"]["forecastday"][0]["hour"][15]["condition"]["text"]
             },
             {
                 "time": result["forecast"]["forecastday"][0]["hour"][18]["time"],
                 "temp_c": result["forecast"]["forecastday"][0]["hour"][18]["temp_c"],
                 "temp_f": result["forecast"]["forecastday"][0]["hour"][18]["temp_f"],
-                "condition" : result["forecast"]["forecastday"][0]["hour"][18]["condition"]
+                "condition" : result["forecast"]["forecastday"][0]["hour"][18]["condition"]["text"]
             },
             {
                 "time": result["forecast"]["forecastday"][0]["hour"][21]["time"],
                 "temp_c": result["forecast"]["forecastday"][0]["hour"][21]["temp_c"],
                 "temp_f": result["forecast"]["forecastday"][0]["hour"][21]["temp_f"],
-                "condition" : result["forecast"]["forecastday"][0]["hour"][21]["condition"]
+                "condition" : result["forecast"]["forecastday"][0]["hour"][21]["condition"]["text"]
             },
             {
                 "time": result["forecast"]["forecastday"][1]["hour"][0]["time"],

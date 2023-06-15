@@ -1,0 +1,43 @@
+.item-box{
+    display: grid;
+    flex-direction: row; /* Display boxes side by side */
+    align-items: center;
+    text-align: center;
+    width: 6vw;
+    height: 100%;
+
+  }
+
+
+  .weather-box h2{
+    font-size: 2vh;
+
+ 
+  }
+
+  .box-content{
+    border-radius: 10px;
+    width: 100%;
+    height: 14vh;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  
+  .box-content img {
+    width: 40%; /* Adjust the width of the image as needed */
+    margin-top: 10%;
+ 
+  }
+
+  
+  .time {
+    font-size: 1.5vh;
+    font-weight: 400;
+    color: black;
+    margin-top: 1rem;
+
+}

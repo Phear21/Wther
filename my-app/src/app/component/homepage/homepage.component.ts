@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import axios from 'axios';
+import { WeatherService } from '../../service/weather.service';
+
 
 //This will use for the Mapping data from the json file therefore I need to make the interface for that. 
 interface WeatherData {
@@ -44,21 +46,25 @@ export class HomepageComponent implements OnInit {
   backgroundColor: string | undefined;
   weatherData: any[] = [];
   weatherAPI!: WeatherData;
+  currentTime: string = '';
 
   ngOnInit(): void {
     this.dateTime = new Date();
     setInterval(() => {
       this.dateTime = new Date();
       this.updateBackgroundColor();
+      this.currentTime = this.dateTime.toLocaleTimeString([], { hour: '2-digit', hour12: false });
+
     }, 1000);
     // Then in the Oninit we will declare teh animation to sto
     //trying to call the api 
+
     axios.get('https://backend-botnoi.onrender.com/Thailand',{withCredentials: true})
+    // axios.get('http://127.0.0.1:8000/Thailand',{withCredentials: true})
       .then(response => {
         this.weatherAPI=response.data;
-        console.log(this.weatherAPI)
-        console.log(this.weatherAPI.hour[0].condition)
         this.UpdateWeatherData();
+        // this.weatherService.setWeatherData(this.weatherAPI);
       })
       .catch(error => {
         console.error(error);
@@ -66,10 +72,8 @@ export class HomepageComponent implements OnInit {
   }
     //For the mapping data from the
 
+    constructor(private weatherService: WeatherService) {}
 
-    constructor() {
-     
-    }
     updateBackgroundColor(): void {
       const currentHour = this.dateTime.getHours();
   
@@ -77,61 +81,112 @@ export class HomepageComponent implements OnInit {
       document.documentElement.style.setProperty('--background-color', this.backgroundColor);
     }
 
-    getWeatherImage(condition:string):any {
+    getWeatherImage(condition:string,time:any):any {
+      // make night and light conditon
+      const parsedTime = parseInt(time); 
+  
+      if (parsedTime <= 18){
+        if (condition === 'Sunny' ){
+          return '../assets/Sunny.svg'
+        }
+        else if (condition === "Cloudy"){
+          return '../assets/Sunnywithcloud.svg'
+        }
+         else if (condition === 'Rainy') {
+          return '../assets/Rainy.svg';
+        } 
+        else if (condition === 'Partly cloudy'){
+          return '../assets/PartlyCloud.svg';
+        }
+        else if (condition ==='Patchy rain possible'){
+          return '../assets/Sunny Rain.svg'
+        }
+        else {
+          return '../assets/Default.svg';
     
-      if (condition === 'Sunny'){
-        return '../assets/Sunny.svg'
+        }
       }
-      else if (condition === "Cloudy"){
-        return '../assets/Sunnywithcloud.svg'
+      else if (parsedTime > 18){
+        if (condition === 'Sunny' ){
+          return '../assets/night.svg'
+        }
+        else if (condition === "Cloudy"){
+          return '../assets/Cloudny Night.svg'
+        }
+         else if (condition === 'Rainy') {
+          return '../assets/Rainy.svg';
+        } 
+        else if (condition === 'Clear') {
+          return '../assets/night.svg'
+        }
+        else if (condition === 'Partly cloudy'){
+          return '../assets/partlynight.svg';
+        }
+        else if (condition ==='Patchy rain possible'){
+          return '../assets/Sunny Rain.svg'
+        }
+        else {
+          return '../assets/Default.svg';
+    
+        }
       }
-       else if (condition === 'Rainy') {
-        return '../assets/Rainy.svg';
-      } 
-      else if (condition === 'Partly cloudy'){
-        return '../assets/PartlyCloud.svg';
-      }
-      else if (condition ==='Patchy rain possible'){
-        return '../assets/Sunny Rain.svg'
-      }
-      else {
-        return '../assets/Default.svg';
-      }
+      
     }
 
-    // getItemimage(condition:string):any {
-    
-    //   if (condition === 'Sunny'){
-    //     return '../assets/Sunny.svg'
-    //   }
-    //   else if (condition === 'Cloudy'){
-    //     return '../assets/Sunnywithcloud.svg'
-    //   }
-    //    else if (condition === 'Rainy') {
-    //     return '../assets/Rainy.svg';
-    //   } 
-      
-    //   else if (condition === 'Partly cloudy'){
-    //     return '../assets/PartlyCloud.svg';
-    //   }
-    //   else {
-    //     return '../assets/Default.svg';
-    //   }
-    // }
+
+    //So first of all the item image have to be able to check the
+    //weathter condition and create
+
+    getRecommenedItems(condition:string):any[''] {
+      if (condition === 'Sunny') {
+        return [
+          '../assets/sunglasses 1.svg',
+          '../assets/sun-block 1.svg',
+          '../assets/umbrella (1) 1.svg'
+        ];
+      } else if (condition === 'Partly cloudy') {
+        return [
+  
+          '../assets/sun-block 1.svg',
+          '../assets/sunglasses 1.svg',
+          '../assets/umbrella (1) 1.svg'
+        ];
+        
+      } else if (condition === 'Cloudy') {
+        return [
+          '../assets/cloudy-item-1.svg',
+          '../assets/cloudy-item-2.svg',
+          '../assets/cloudy-item-3.svg'
+        ];
+      }
+        else if (condition === 'Rainy') {
+        return [
+          '../assets/rainy-item-1.svg',
+          '../assets/rainy-item-2.svg',
+          '../assets/rainy-item-3.svg'
+        ];
+      } else {
+        return [
+          '../assets/default-item-1.svg',
+          '../assets/default-item-2.svg',
+          '../assets/default-item-3.svg'
+        ];
+      }
+    }
 
     
   
 //This have to be in the function since the this. stuff not work with the outside
   UpdateWeatherData():void{
+   
     this.weatherData = [
 
 //the thing below have to be able to check the time 
-
       // { title: 'ตอนเช้า', temperature: '37°C', condition:'Cloudy' , boxStyles: { background: '#92CCFF' }, imageSrc: this.getWeatherImage(this.weatherAPI.quarters[0].summary)},
-      { title: 'ตอนเช้า', temperature: '35°C', condition: this.weatherAPI.hour[0].condition, boxStyles: { background: '#22A5E0' }, imageSrc: this.getWeatherImage(this.weatherAPI.hour[0].condition)},
-      { title: 'กลางวัน', temperature: '35°C', condition: 'Cloudy', boxStyles: { background: '#22A5E0' }, imageSrc: this.getWeatherImage(this.weatherAPI.hour[2].condition)},
-      { title: 'ตอนเย็น', temperature: '28°C', condition: 'Rainy', boxStyles: { background: '#146C94' }, imageSrc: this.getWeatherImage(this.weatherAPI.hour[3].condition)},
-      { title: 'กลางคืน', temperature: '29°C', condition: 'Rainy', boxStyles: { background: '#010B1B' }, imageSrc: this.getWeatherImage(this.weatherAPI.hour[4].condition) }
+      { title: 'ตอนเช้า', temperature:  Math.floor(this.weatherAPI.hour[0].temp_c)+'°C', condition: this.weatherAPI.hour[0].condition, boxStyles: { background: '#22A5E0' }, imageSrc: this.getWeatherImage(this.weatherAPI.hour[0].condition,9)},
+      { title: 'กลางวัน',  temperature: Math.floor(this.weatherAPI.hour[2].temp_c)+'°C', condition: 'Cloudy', boxStyles: { background: '#22A5E0' }, imageSrc: this.getWeatherImage(this.weatherAPI.hour[2].condition,15)},
+      { title: 'ตอนเย็น',  temperature: Math.floor(this.weatherAPI.hour[3].temp_c)+'°C', condition: 'Rainy', boxStyles: { background: '#146C94' }, imageSrc: this.getWeatherImage(this.weatherAPI.hour[3].condition,18)},
+      { title: 'กลางคืน',  temperature: Math.floor(this.weatherAPI.hour[4].temp_c)+'°C', condition: 'Rainy', boxStyles: { background: '#010B1B' }, imageSrc: this.getWeatherImage(this.weatherAPI.hour[4].condition,21) }
     ];
   
   }

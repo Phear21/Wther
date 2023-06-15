@@ -1,16 +1,14 @@
 <div class="home" >
 
-    <app-nav-bar></app-nav-bar>
 
+  <app-nav-bar></app-nav-bar>
  
 <div class="container">
-   
-
     <div class="live">
         <div class="live-info-box">
             <div class="live-info">
               <div class="top-live">
-                <img [src]="getWeatherImage(weatherAPI.condition.text)" alt="">
+                <img [src]="getWeatherImage(weatherAPI.condition.text,currentTime )" alt="">
                 
                 <div class="temperaturebox">
                   <div class="temperature">
@@ -60,21 +58,18 @@
 
         <div  class="hourly-weater">
    
-          <app-weather-box *ngFor="let data of weatherData" [title]="data.title" [temperature]="data.temperature" [condition]="data.condition" [boxStyles]="data.boxStyles"  [imageSrc]="data.imageSrc"></app-weather-box>
-    
+          <app-weather-box *ngFor="let data of weatherData" [title]="data.title" [temperature]="data.temperature" [condition]="data.condition" [boxStyles]="data.boxStyles"  [imageSrc]="data.imageSrc"></app-weather-box> 
       </div>
    
-
-
 
     </div>
     <div class="recommended">
       <div class="recommended-item">
         <div class="recomend-box">
           สิ่งของที่แนะนำ
-          <img src="../assets/sunglasses 1.svg" alt="">
-          <img src="../assets/sun-block 1.svg" alt="">
-          <img src="../assets/umbrella (1) 1.svg" alt="">
+          <ng-container *ngFor="let item of getRecommenedItems(weatherAPI.condition.text)">
+            <img [src]="item" alt=""/>
+          </ng-container>
         </div>
      
       </div>

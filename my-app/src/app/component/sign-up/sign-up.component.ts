@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import liff from '@line/liff';
 import {Router} from '@angular/router';
+import axios from 'axios';
 
 type UnPromise<T> = T extends Promise<infer X>? X : T; // use to check whether the 
 
@@ -23,35 +24,57 @@ export class SignUpComponent implements OnInit {
       this.loadingAnimationClass= '';
     },4500);
 
-      liff.init({
-        liffId:'1661398192-oglAdg54'
-      }).then(() =>{
-    
-      if(liff.isLoggedIn()){
-
-        //if Line Is logged in It need to go check in the database whether user are record in there
-        //then if there are user record it need to path to the homepage instead
-        liff.getProfile().then( profile =>{
+    liff.init({
+      liffId: '1661398192-oglAdg54'
+    }).then(() => {
+      if (liff.isLoggedIn()) {
+        liff.getProfile().then((profile) => {
           this.profile = profile;
-          console.log(this.profile)
-          //check the database in this
-          // if (name == 'Pu'){
-          //   setTimeout(()=>{
-          //     this.router.navigate(['/home']);
-          //   },2000)
-            
-          // }
-        
-        }).catch(console.error);
-      }else{
-        liff.login()
-      }
-
-      }).catch((err)=>{
-        console.log(err.code, err.message)
-      })
+          console.log(this.profile);
     
-
+          const name = this.profile?.displayName;
+          const userID = this.profile?.userId;
+    
+          const userData = {
+            user_id: userID,
+            name: name,
+            age: '',
+            gender: '',
+          };
+          console.log( JSON.stringify(userData));
+    
+          axios.post('https://backend-botnoi.onrender.com/',  JSON.stringify(userData),{
+            withCredentials: true,
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
+            .then(response => {
+              console.log(response.data);
+        
+              axios.get('https://backend-botnoi.onrender.com/')
+                .then(response => {
+                  console.log(response.data);
+                  // Handle the response from the GET request
+                  // Perform further actions based on the response
+                })
+                .catch(error => {
+                  // Handle the error from the GET request
+                  console.error(error);
+                });
+            })
+            .catch(error => {
+              // Handle the error from the POST request
+              console.error(error);
+            });
+        }).catch(console.error);
+      } else {
+        liff.login();
+      }
+    }).catch((err) => {
+      console.log(err.code, err.message);
+    });
+    
   }
 
 
@@ -60,16 +83,14 @@ export class SignUpComponent implements OnInit {
   recordUserInput() {
     const ageInput = (document.getElementById("ageInput") as HTMLInputElement).value;
     const genderInput = this.selectedGender;
-    const name  =  this.profile?.displayName
-    const userID  =  this.profile?.userId
+   
 
-    const userData = { 
-      name: name,
+    const userinfo = { 
       age: ageInput,
       gender: genderInput,
-      userID: userID
+
     };
-    const jsonData = JSON.stringify(userData);
+    const jsonData = JSON.stringify(userinfo);
     console.log(jsonData)
     // You can perform further actions with the user input here
   }

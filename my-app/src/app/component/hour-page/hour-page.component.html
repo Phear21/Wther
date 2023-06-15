@@ -1,62 +1,66 @@
+<app-nav-bar></app-nav-bar>
 <div class="hour">
 
     <div class="container">
-        <div class="live-left">
-            <div class="live-info-box">
-                <div class="live-info">
-                  <div class="top-left-live">
-                    <div class="left-data">
-                      <div>
-                        สภาพอากาศปัจจุบัน
-                        <span>
-                          กรุงเทพมหานคร
-                          <div style="margin: -10px 1px;">
-                            ประเทศไทย
-                          </div>
-                          <div class="temperature">
-                            <p class="temperature-data">
-                              37
-                              <a style="font-size: 32;">&nbsp;&#8451;</a>
-                            </p>  
-                          </div>
-                        </span>
-                      </div>
-                      <img src="../assets/Sunny.svg" alt="">
-                    </div>
-                  </div>
-                </div> 
-                   
-            </div>
-        </div>
+      <div class="hour-top">
 
-        <div class="top-right">
+        <div class="live-left">
           <div class="live-info-box">
               <div class="live-info">
                 <div class="top-left-live">
-                  <div class="right-data">
+                  <div class="left-data">
                     <div>
-                      สิ่งของแนะนำ:
-                      <div class="hourly-text">
-                      </div>
+                      สภาพอากาศปัจจุบัน<br>
+                      <span>
+                        {{ this.weatherAPI.location.name }}
+                        <div style="margin: -10px 1px;">
+                          {{ this.weatherAPI.location.country }}
+                        </div>
+                        <div class="temperature">
+                          <p class="temperature-data">
+                            {{ this.weatherAPI.current.temp_c }}
+                            <a style="font-size: 32;">&nbsp;&#8451;</a>
+                          </p>  
+                        </div>
+                      </span>
                     </div>
+                    <img [src]="getWeatherImage(weatherAPI.condition.text,currentTime )" alt="">
                   </div>
                 </div>
               </div> 
                  
           </div>
       </div>
+
+      <div class="top-right">
+        <div class="live-info-box2">
+            <div class="live-info2">
+              <h3>สิ่งของแนะนำ:</h3>
+              </div>     
+            </div> 
+
+        <div class="recommended-item ">
+             <app-itembox *ngFor="let data of itemData" [time]="data.time"[condition]="data.condition" [boxStyles]="data.boxStyles"  [imageSrc]="data.imageSrc"></app-itembox>        
+        </div>
+    </div>
+      </div>
+       
       </div>
       
  
     
-      <div class="bottom-data">
-        <div  class="today-weather">
-    
-          <div class="today-text">
-              สภาพอากาศวันนี้
-            <p>
-              กรุงเทพมหานคร, ประเทศไทย
-            </p>
+      <div class="container">
+        <div class="bottom-data">
+          <div  class="today-weather">
+      
+            <div class="today-text">
+                สภาพอากาศวันนี้
+              <p>
+                กรุงเทพมหานคร, ประเทศไทย
+              </p>
+            </div>
           </div>
-        </div>
-    </div>
+      </div>
+      </div>
+
+      

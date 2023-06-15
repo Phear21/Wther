@@ -30,53 +30,77 @@
         align-items: center;
         justify-content: start;
         width: 32%;
-        gap: 3.5vw;
+        gap: 1vw;
         height: 12vh;
-        margin-left: 2vw;
-        flex-wrap: wrap;
-      }
+        margin-left: 1vw;
       
+      }
+    
+      .btn-live{
+        width: 20%;
+        height: 100%;
+    }
     .btn-live a{
         display: flex;
         align-items: center;
-    
-
-        top: 38px;
+        justify-content: center;
+        height: 10vh;
         text-decoration: none;
         color: #FFFFFF;
         font-family: 'Inter';
         font-style: normal;
         font-weight: 500;
         font-size: 25px;
+        transition: background-color 0.3s;
 
     }
-
-    .btn-hour a{
+    .btn-live a:hover {
+        background-color: #22ABE9;
+        border-radius: 10%;
+      }
+    .btn-hour{
+        width: 30%;
+        height: 100%;
+    }
+    .btn-hour a {
         display: flex;
         align-items: center;
-    
-
-        top: 38px;
+        justify-content: center;
+        height: 10vh;
         text-decoration: none;
         color: #FFFFFF;
         font-family: 'Inter';
         font-style: normal;
         font-weight: 500;
         font-size: 25px;
-
+        transition: background-color 0.3s;
+      }
+      .btn-hour a:hover {
+        background-color: #22ABE9;
+        border-radius: 10%;
+      }
+      .btn-weekly{
+        width: 30%;
+        height: 100%;
     }
-
     .btn-weekly a{
         display: flex;
-        align-items: center;      
+        align-items: center;
+        justify-content: center;
+        height: 10vh;
         text-decoration: none;
         color: #FFFFFF;
         font-family: 'Inter';
         font-style: normal;
         font-weight: 500;
         font-size: 25px;
+        transition: background-color 0.3s;
 
     }
+    .btn-weekly a:hover {
+        background-color: #22ABE9;
+        border-radius: 10%;
+      }
 
     .serach-box{
         width: 100%;
