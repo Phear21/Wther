@@ -60,13 +60,12 @@ export class HomepageComponent implements OnInit {
       this.dateTime = new Date();
       this.updateBackgroundColor();
       this.currentTime = this.dateTime.toLocaleTimeString([], { hour: '2-digit', hour12: false });
-      
- 
-  
+
   
     }, 1000);
     // Then in the Oninit we will declare teh animation to sto
     //trying to call the api 
+
     let searchTerm = this.searchService.getSearchTerm();
     if (!searchTerm) {
       searchTerm = 'Thailand';
@@ -78,11 +77,14 @@ export class HomepageComponent implements OnInit {
         this.weatherAPI=response.data;
         this.UpdateWeatherData();
         // this.weatherService.setWeatherData(this.weatherAPI);
+        console.log(this.weatherAPI.hour[2].condition)
  
       })
       .catch(error => {
         console.error(error);
       });
+
+
   }
     //For the mapping data from the
 
@@ -98,28 +100,36 @@ export class HomepageComponent implements OnInit {
       // make night and light conditon
       const parsedTime = parseInt(time); 
   
-      if (parsedTime <= 18){
+      if (parsedTime < 18){
         if (condition === 'Sunny' ){
           return '../assets/Sunny.svg'
         }
         else if (condition === "Cloudy"){
           return '../assets/Sunnywithcloud.svg'
         }
-         else if (condition === 'Rainy') {
+         else if (condition === 'Rainy' || condition ==='Heavy rain') {
           return '../assets/Rainy.svg';
         } 
+     
         else if (condition === 'Partly cloudy'){
           return '../assets/PartlyCloud.svg';
         }
-        else if (condition ==='Patchy rain possible'){
+        else if (condition ==='Patchy rain possible'|| condition ==='Light rain shower'){
           return '../assets/Sunny Rain.svg'
         }
+        else if (condition === "Overcast"){
+          return '../assets/Sunnywithcloud.svg'
+        }
+        else if (condition ==='Light rain'){
+          return '../assets/Sunny Rain.svg'
+        }
+      
         else {
           return '../assets/Default.svg';
     
         }
       }
-      else if (parsedTime > 18){
+      else if (parsedTime >= 18){
         if (condition === 'Sunny' ){
           return '../assets/night.svg'
         }
@@ -136,6 +146,12 @@ export class HomepageComponent implements OnInit {
           return '../assets/partlynight.svg';
         }
         else if (condition ==='Patchy rain possible'){
+          return '../assets/Sunny Rain.svg'
+        }
+        else if (condition === "Overcast"){
+          return '../assets/Sunnywithcloud.svg'
+        }
+        else if (condition ==='Light rain'){
           return '../assets/Sunny Rain.svg'
         }
         else {
