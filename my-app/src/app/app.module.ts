@@ -14,6 +14,7 @@ import { HourPageComponent } from './component/hour-page/hour-page.component';
 import { FormsModule } from '@angular/forms';
 import { NavBarComponent } from './component/nav-bar/nav-bar.component';
 import { ItemboxComponent } from './component/itembox/itembox.component';
+import { SearchService } from './service/searchservice.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,7 @@ import { ItemboxComponent } from './component/itembox/itembox.component';
   exports:[
     RouterModule
   ],
-  providers: [],
+  providers: [SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

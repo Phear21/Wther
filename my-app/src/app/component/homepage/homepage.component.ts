@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import axios from 'axios';
 import { WeatherService } from '../../service/weather.service';
+import { SearchService } from 'src/app/service/searchservice.service';
 
 
 //This will use for the Mapping data from the json file therefore I need to make the interface for that. 
@@ -47,24 +48,37 @@ export class HomepageComponent implements OnInit {
   weatherData: any[] = [];
   weatherAPI!: WeatherData;
   currentTime: string = '';
+  
+  constructor(private weatherService: WeatherService,private searchService: SearchService) {}
 
   ngOnInit(): void {
     this.dateTime = new Date();
+
+   
+   
     setInterval(() => {
       this.dateTime = new Date();
       this.updateBackgroundColor();
       this.currentTime = this.dateTime.toLocaleTimeString([], { hour: '2-digit', hour12: false });
-
+      
+ 
+  
+  
     }, 1000);
     // Then in the Oninit we will declare teh animation to sto
     //trying to call the api 
-
-    axios.get('https://backend-botnoi.onrender.com/Thailand',{withCredentials: true})
+    let searchTerm = this.searchService.getSearchTerm();
+    if (!searchTerm) {
+      searchTerm = 'Thailand';
+    }
+    
+    axios.get(`https://backend-botnoi.onrender.com/${searchTerm}`,{withCredentials: true})
     // axios.get('http://127.0.0.1:8000/Thailand',{withCredentials: true})
       .then(response => {
         this.weatherAPI=response.data;
         this.UpdateWeatherData();
         // this.weatherService.setWeatherData(this.weatherAPI);
+ 
       })
       .catch(error => {
         console.error(error);
@@ -72,8 +86,7 @@ export class HomepageComponent implements OnInit {
   }
     //For the mapping data from the
 
-    constructor(private weatherService: WeatherService) {}
-
+    
     updateBackgroundColor(): void {
       const currentHour = this.dateTime.getHours();
   
@@ -148,7 +161,6 @@ export class HomepageComponent implements OnInit {
         return [
   
           '../assets/sun-block 1.svg',
-          '../assets/sunglasses 1.svg',
           '../assets/umbrella (1) 1.svg'
         ];
         

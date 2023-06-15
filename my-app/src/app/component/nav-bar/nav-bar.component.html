@@ -20,8 +20,8 @@
      
         <div class="searchcover">
             <div class="serach-box">
-                <input type="text" placeholder="Search.." name="search">
-                <img src="../assets/search-icon.svg" alt="search icon" type="submit" class="search-btn">
+                <input type="text" placeholder="Search.." name="search" [(ngModel)]="searchTerm" (keydown.enter)="search()">
+                <img src="../assets/search-icon.svg" alt="search icon" type="submit" (click)="search()" class="search-btn">
             </div>
         </div>
   
