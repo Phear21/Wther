@@ -60,30 +60,29 @@ export class HomepageComponent implements OnInit {
       this.dateTime = new Date();
       this.updateBackgroundColor();
       this.currentTime = this.dateTime.toLocaleTimeString([], { hour: '2-digit', hour12: false });
-
+      let searchTerm = this.searchService.getSearchTerm();
+      if (!searchTerm) {
+        searchTerm = 'Thailand';
+      }
+      
+      axios.get(`https://backend-botnoi.onrender.com/${searchTerm}`,{withCredentials: true})
+      // axios.get('http://127.0.0.1:8000/Thailand',{withCredentials: true})
+        .then(response => {
+          this.weatherAPI=response.data;
+          this.UpdateWeatherData();
+          // this.weatherService.setWeatherData(this.weatherAPI);
+   
+        })
+        .catch(error => {
+          console.error(error);
+        });
+  
   
     }, 1000);
     // Then in the Oninit we will declare teh animation to sto
     //trying to call the api 
 
-    let searchTerm = this.searchService.getSearchTerm();
-    if (!searchTerm) {
-      searchTerm = 'Thailand';
-    }
-    
-    axios.get(`https://backend-botnoi.onrender.com/${searchTerm}`,{withCredentials: true})
-    // axios.get('http://127.0.0.1:8000/Thailand',{withCredentials: true})
-      .then(response => {
-        this.weatherAPI=response.data;
-        this.UpdateWeatherData();
-        // this.weatherService.setWeatherData(this.weatherAPI);
-        console.log(this.weatherAPI.hour[2].condition)
- 
-      })
-      .catch(error => {
-        console.error(error);
-      });
-
+   
 
   }
     //For the mapping data from the

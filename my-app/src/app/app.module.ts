@@ -15,6 +15,8 @@ import { FormsModule } from '@angular/forms';
 import { NavBarComponent } from './component/nav-bar/nav-bar.component';
 import { ItemboxComponent } from './component/itembox/itembox.component';
 import { SearchService } from './service/searchservice.service';
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +35,7 @@ import { SearchService } from './service/searchservice.service';
     AppRoutingModule,
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       {path:'', component: SignUpComponent},
       {path:'home',component:HomepageComponent},

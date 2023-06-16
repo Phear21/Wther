@@ -54,7 +54,7 @@ export class SignUpComponent implements OnInit {
                   // Perform operations with each data item
                   if (userID === dataItem.user_id){
                     console.log('math')
-                    // this.router.navigate(['/home']); 
+                    this.router.navigate(['/home']); 
                   }
                   else{
 
