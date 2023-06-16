@@ -57,22 +57,97 @@
                 </p>
                   <div class="container-hourly">
                     <div class="temperature-hourly-box">
-                      <img src="../assets/Sunny.svg" alt="">
-                      <p>แดดแรง</p>
+                      <div class="hour-right">   
+                      <img [src]="getWeatherImage(weatherAPI.hour[0].condition,9 )" alt="">
+                      <p>{{ this.weatherAPI.hour[0].temp_c.toFixed(0) }}°C</p>
+                      <p>{{this.weatherAPI.hour[0].condition}}</p>
+                      </div>
+                      <div class="time">
+                        <span>9:00</span>
+                      </div>
+            
                     </div>
                     <div class="temperature-hourly-box">
-                      <img src="../assets/Rain.svg" alt="">
-                      <p>ฝนตก</p>
+                      <div class="hour-right">   
+                      <img [src]="getWeatherImage(weatherAPI.hour[1].condition,12 )" alt="">
+                      <p>{{ this.weatherAPI.hour[1].temp_c.toFixed(0) }}°C</p>
+                      <p>{{this.weatherAPI.hour[1].condition}}</p>
+                      </div>
+                      <div class="time">
+                        <span>12:00</span>
+                      </div>
+            
                     </div>
                     <div class="temperature-hourly-box">
-                      <img src="../assets/Wind.svg" alt="">
-                      <p>ลมแรง</p>
+                      <div class="hour-right">   
+                      <img [src]="getWeatherImage(weatherAPI.hour[2].condition,15 )" alt="">
+                      <p>{{ this.weatherAPI.hour[2].temp_c.toFixed(0) }}°C</p>
+                      <p>{{this.weatherAPI.hour[2].condition}}</p>
+                      </div>
+                      <div class="time">
+                        <span>15:00</span>
+                      </div>
+            
                     </div>
                     <div class="temperature-hourly-box">
-                      <img src="../assets/Storm.svg" alt="">
-                      <p>พายุ</p>
+                      <div class="hour-right">   
+                      <img [src]="getWeatherImage(weatherAPI.hour[3].condition,18 )" alt="">
+                      <p>{{ this.weatherAPI.hour[3].temp_c.toFixed(0) }}°C</p>
+                      <p>{{this.weatherAPI.hour[3].condition}}</p>
+                      </div>
+                      <div class="time">
+                        <span>18:00</span>
+                      </div>
+            
+                    </div>
+                    <div class="temperature-hourly-box">
+                      <div class="hour-right">   
+                      <img [src]="getWeatherImage(weatherAPI.hour[4].condition,21 )" alt="">
+                      <p>{{ this.weatherAPI.hour[4].temp_c.toFixed(0) }}°C</p>
+                      <p>{{this.weatherAPI.hour[4].condition}}</p>
+                      </div>
+                      <div class="time">
+                        <span>21:00</span>
+                      </div>
+            
+                    </div>
+                    <div class="temperature-hourly-box">
+                      <div class="hour-right">   
+                      <img [src]="getWeatherImage(weatherAPI.hour[5].condition,24 )" alt="">
+                      <p>{{ this.weatherAPI.hour[5].temp_c.toFixed(0) }}°C</p>
+                      <p>{{this.weatherAPI.hour[5].condition}}</p>
+                      </div>
+                      <div class="time">
+                        <span>24:00</span>
+                      </div>
+            
+                    </div>
+                    <div class="temperature-hourly-box">
+                      <div class="hour-right">   
+                          <img [src]="getWeatherImage(weatherAPI.hour[6].condition,3 )" alt="">
+                        <p>{{ this.weatherAPI.hour[6].temp_c.toFixed(0) }}°C</p>
+                        <p>{{this.weatherAPI.hour[6].condition}}</p>
+                      </div>
+                  
+                      <div class="time">
+                        <span>3:00</span>
+                      </div>
+            
+                    </div>
+                    <div class="temperature-hourly-box">
+                      <div class="hour-right">
+                        <img [src]="getWeatherImage(weatherAPI.hour[7].condition,6 )" alt="">
+                        <p>{{ this.weatherAPI.hour[7].temp_c.toFixed(0) }}°C</p>
+                        <p>{{this.weatherAPI.hour[7].condition}}</p>
+                      </div>
+
+                      <div class="time">
+                        <span>6:00</span>
+                      </div>
+            
                     </div>
                   </div>
+                  
               </div>
             </div>
         </div>

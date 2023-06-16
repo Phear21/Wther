@@ -1,4 +1,5 @@
-
+<app-nav-bar></app-nav-bar>
+ 
 <div class="weekly">
 
         <div class="bottom-data">
@@ -8,21 +9,44 @@
                   พยากรอากาศ 7 วัน
                   <div class="container-hourly">
                     <div class="temperature-hourly-box">
-                      <img src="../assets/Sunny.svg" alt="">
-                      <p>แดดแรง</p>
+                      <img [src]="getWeatherImage(weatherAPI.hour[8].condition,9 )" alt="">
+
+                      <p>{{this.weatherAPI.hour[8].condition}}</p>
+
+                      <div class="minmax">
+                        <p>{{this.weatherAPI.hour[8].weathermin}}</p>
+                        <p>{{this.weatherAPI.hour[8].weathermax}}</p>
+                      </div>
+      
                     </div>
                     <div class="temperature-hourly-box">
-                      <img src="../assets/Rain.svg" alt="">
-                      <p>ฝนตก</p>
+                      <img [src]="getWeatherImage(weatherAPI.hour[9].condition,12 )" alt="">
+                  
+                      <p>{{this.weatherAPI.hour[9].condition}}</p>
+                   
                     </div>
                     <div class="temperature-hourly-box">
-                      <img src="../assets/Wind.svg" alt="">
-                      <p>ลมแรง</p>
+                      <img [src]="getWeatherImage(weatherAPI.hour[10].condition,15 )" alt="">
+
+                      <p>{{this.weatherAPI.hour[10].condition}}</p>
+          
                     </div>
                     <div class="temperature-hourly-box">
-                      <img src="../assets/Storm.svg" alt="">
-                      <p>พายุ</p>
+                      <img [src]="getWeatherImage(weatherAPI.hour[11].condition,18 )" alt="">
+ 
+                      <p>{{this.weatherAPI.hour[11].condition}}</p>
                     </div>
+                    <div class="temperature-hourly-box">
+                      <img [src]="getWeatherImage(weatherAPI.hour[12].condition,21 )" alt="">
+
+                      <p>{{this.weatherAPI.hour[12].condition}}</p>
+                    </div>
+                    <div class="temperature-hourly-box">
+                      <img [src]="getWeatherImage(weatherAPI.hour[13].condition,24 )" alt="">
+              
+                      <p>{{this.weatherAPI.hour[13].condition}}</p>
+                    </div>
+                  
                   </div>
               </div>
             </div>

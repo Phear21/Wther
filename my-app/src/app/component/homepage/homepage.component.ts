@@ -60,7 +60,13 @@ export class HomepageComponent implements OnInit {
       this.dateTime = new Date();
       this.updateBackgroundColor();
       this.currentTime = this.dateTime.toLocaleTimeString([], { hour: '2-digit', hour12: false });
-      let searchTerm = this.searchService.getSearchTerm();
+     
+  
+    }, 1000);
+    // Then in the Oninit we will declare teh animation to sto
+    //trying to call the api 
+
+    let searchTerm = this.searchService.getSearchTerm();
       if (!searchTerm) {
         searchTerm = 'Thailand';
       }
@@ -77,12 +83,6 @@ export class HomepageComponent implements OnInit {
           console.error(error);
         });
   
-  
-    }, 1000);
-    // Then in the Oninit we will declare teh animation to sto
-    //trying to call the api 
-
-   
 
   }
     //For the mapping data from the

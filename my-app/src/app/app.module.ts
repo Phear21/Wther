@@ -8,7 +8,7 @@ import { WeatherBoxComponent } from './component/weather-box/weather-box/weather
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SignUpComponent } from './component/sign-up/sign-up.component';
-import { WeeklypageComponent } from './component/weeklypage/weeklypage.component';
+
 import { HourPageComponent } from './component/hour-page/hour-page.component';
 // Remaining code...
 import { FormsModule } from '@angular/forms';
@@ -16,6 +16,7 @@ import { NavBarComponent } from './component/nav-bar/nav-bar.component';
 import { ItemboxComponent } from './component/itembox/itembox.component';
 import { SearchService } from './service/searchservice.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { WeeklyPageComponent } from './component/weekly-page/weekly-page.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomepageComponent,
     WeatherBoxComponent,
     SignUpComponent,
-    WeeklypageComponent,
+    WeeklyPageComponent,
     HourPageComponent,
     NavBarComponent,
     ItemboxComponent
@@ -39,7 +40,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     RouterModule.forRoot([
       {path:'', component: SignUpComponent},
       {path:'home',component:HomepageComponent},
-      {path:'weekly',component:WeeklypageComponent},
+      {path:'weekly',component:WeeklyPageComponent},
       {path:'hour', component:HourPageComponent}
     ]
     )

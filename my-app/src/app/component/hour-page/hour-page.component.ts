@@ -83,28 +83,36 @@ export class HourPageComponent implements OnInit {
     // make night and light conditon
     const parsedTime = parseInt(time); 
 
-    if (parsedTime <= 18){
+    if (parsedTime < 18){
       if (condition === 'Sunny' ){
         return '../assets/Sunny.svg'
       }
       else if (condition === "Cloudy"){
-        return '../assets/Sunnywithcloud.svg'
+        return '../assets/Cloudy.svg'
       }
-       else if (condition === 'Rainy') {
+       else if (condition === 'Rainy' || condition ==='Heavy rain') {
         return '../assets/Rainy.svg';
       } 
+   
       else if (condition === 'Partly cloudy'){
         return '../assets/PartlyCloud.svg';
       }
-      else if (condition ==='Patchy rain possible'){
+      else if (condition ==='Patchy rain possible'|| condition ==='Light rain shower'){
         return '../assets/Sunny Rain.svg'
       }
+      else if (condition === "Overcast"){
+        return '../assets/Cloudy.svg'
+      }
+      else if (condition ==='Light rain'){
+        return '../assets/Sunny Rain.svg'
+      }
+    
       else {
         return '../assets/Default.svg';
   
       }
     }
-    else if (parsedTime > 18){
+    else if (parsedTime >= 18){
       if (condition === 'Sunny' ){
         return '../assets/night.svg'
       }
@@ -114,10 +122,19 @@ export class HourPageComponent implements OnInit {
        else if (condition === 'Rainy') {
         return '../assets/Rainy.svg';
       } 
+      else if (condition === 'Clear') {
+        return '../assets/night.svg'
+      }
       else if (condition === 'Partly cloudy'){
         return '../assets/partlynight.svg';
       }
       else if (condition ==='Patchy rain possible'){
+        return '../assets/Sunny Rain.svg'
+      }
+      else if (condition === "Overcast"){
+        return '../assets/Sunnywithcloud.svg'
+      }
+      else if (condition ==='Light rain'){
         return '../assets/Sunny Rain.svg'
       }
       else {
