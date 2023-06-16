@@ -193,16 +193,17 @@ UpdateWeatherData():void{
 //the thing below have to be able to check the time 
     // { title: 'ตอนเช้า', temperature: '37°C', condition:'Cloudy' , boxStyles: { background: '#92CCFF' }, imageSrc: this.getWeatherImage(this.weatherAPI.quarters[0].summary)},
     { time: '09:00',  condition: this.weatherAPI.hour[0].condition, boxStyles: { background: 'trasparent' }, imageSrc: this.getRecommenedItems(this.weatherAPI.hour[0].condition)},
-    { time: '12:00',  condition: 'Cloudy', boxStyles: { background: 'trasparent' }, imageSrc: this.getRecommenedItems(this.weatherAPI.hour[1].condition)},
-    { time: '15:00',  condition: 'Rainy', boxStyles: { background: 'trasparent' },imageSrc: this.getRecommenedItems(this.weatherAPI.hour[2].condition)},
-    { time: '18:00',  condition: 'Rainy', boxStyles: { background: 'trasparent' }, imageSrc: this.getRecommenedItems(this.weatherAPI.hour[3].condition)},
-    { time: '21:00',  condition: this.weatherAPI.hour[0].condition, boxStyles: { background: 'trasparent' }, imageSrc: this.getRecommenedItems(this.weatherAPI.hour[4].condition)},
-    { time: '24:00',   condition: 'Cloudy', boxStyles: { background: 'trasparent' }, imageSrc: this.getRecommenedItems(this.weatherAPI.hour[5].condition)},
-    { time: '03:00',  condition: 'Rainy', boxStyles: { background: 'trasparent' }, imageSrc: this.getRecommenedItems(this.weatherAPI.hour[6].condition)},
-    { time: '06:00',  condition: 'Rainy', boxStyles: { background: 'trasparent' }, imageSrc: this.getRecommenedItems(this.weatherAPI.hour[7].condition) }
+    { time: '12:00',  condition: this.weatherAPI.hour[1].condition, boxStyles: { background: 'trasparent' }, imageSrc: this.getRecommenedItems(this.weatherAPI.hour[1].condition)},
+    { time: '15:00', condition: this.weatherAPI.hour[2].condition, boxStyles: { background: 'trasparent' },imageSrc: this.getRecommenedItems(this.weatherAPI.hour[2].condition)},
+    { time: '18:00',  condition: this.weatherAPI.hour[3].condition, boxStyles: { background: 'trasparent' }, imageSrc: this.getRecommenedItems(this.weatherAPI.hour[3].condition)},
+    { time: '21:00',  condition: this.weatherAPI.hour[4].condition, boxStyles: { background: 'trasparent' }, imageSrc: this.getRecommenedItems(this.weatherAPI.hour[4].condition)},
+    { time: '24:00',   condition: this.weatherAPI.hour[5].condition , boxStyles: { background: 'trasparent' }, imageSrc: this.getRecommenedItems(this.weatherAPI.hour[5].condition)},
+    { time: '03:00', condition: this.weatherAPI.hour[6].condition, boxStyles: { background: 'trasparent' }, imageSrc: this.getRecommenedItems(this.weatherAPI.hour[6].condition)},
+    { time: '06:00',  condition: this.weatherAPI.hour[7].condition, boxStyles: { background: 'trasparent' }, imageSrc: this.getRecommenedItems(this.weatherAPI.hour[7].condition) }
   ];
 
 }
+
 
 }
 
