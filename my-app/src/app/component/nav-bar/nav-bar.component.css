@@ -1,0 +1,161 @@
+.nav {
+    margin-top: 5vh;
+    height: 10vh;
+    width: 90vw;
+    min-height: 10vh;
+    display: flex;
+    background: #146C94;
+    border-radius: 30px;
+    margin-bottom: -5vh;
+  }
+  
+.navcover{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
+
+    .logo img{
+        position: relative;
+        width: 150px;
+        height: 142px;
+        left: -20px;
+        top: -20px;
+    
+        border-radius: 150px;
+    }
+    .button {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        width: 32%;
+        gap: 1vw;
+        height: 12vh;
+        margin-left: 1vw;
+      
+      }
+    
+      .btn-live{
+        width: 20%;
+        height: 100%;
+    }
+    .btn-live a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 10vh;
+        text-decoration: none;
+        color: #FFFFFF;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 25px;
+        transition: background-color 0.3s;
+
+    }
+    .btn-live a:hover {
+        background-color: #22ABE9;
+        border-radius: 10%;
+      }
+    .btn-hour{
+        width: 30%;
+        height: 100%;
+    }
+    .btn-hour a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 10vh;
+        text-decoration: none;
+        color: #FFFFFF;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 25px;
+        transition: background-color 0.3s;
+      }
+      .btn-hour a:hover {
+        background-color: #22ABE9;
+        border-radius: 10%;
+      }
+      .btn-weekly{
+        width: 30%;
+        height: 100%;
+    }
+    .btn-weekly a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 10vh;
+        text-decoration: none;
+        color: #FFFFFF;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 25px;
+        transition: background-color 0.3s;
+
+    }
+    .btn-weekly a:hover {
+        background-color: #22ABE9;
+        border-radius: 10%;
+      }
+
+    .serach-box{
+        width: 100%;
+     
+        height: 56px;
+      
+        margin-top: 3vh;
+        background: rgba(255, 255, 255, 0.45);
+        border-radius: 20px;
+    }
+    .searchcover{
+        display: flex;
+        width: 42%;
+        align-items: center;
+        height: 8vh;
+    }
+    .search-btn{
+        float: right;
+        padding: 6px 10px;
+        margin-top: 8px;
+        margin-right: 16px;
+        font-size: 17px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .serach-box input[type=text] {
+        position: relative;
+        padding: 6px 25px;
+        width: 85%;
+        left: 40px;
+        margin-top: 10px;
+        font-size: 17px;
+        border: none;
+        background-color: rgba(255,0,0,0.0);
+      }
+
+    .lang{
+        display: flex;
+        margin-left: 2vh;
+        width: 10%;
+        align-items: center;
+        height: 8vh;
+    }
+
+    .btn-thai{
+        display: flex;
+
+        margin-top: 3vh;
+        border-radius: 150px;
+    }
+
+    .btn-en{
+        display: flex;
+        margin-left: 2vh;
+        margin-top: 3vh;
+        border-radius: 150px;
+    }

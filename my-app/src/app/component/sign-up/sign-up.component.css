@@ -1,0 +1,197 @@
+
+@keyframes example {
+    from { height: 100vh;}
+    to { height: 40vh;}
+  }
+  
+  
+@keyframes smaller {
+    0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(0.7);
+      }
+}
+@keyframes smaller2 {
+    0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(0.5);
+      }
+}
+@keyframes form-appear {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
+@keyframes blink {
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+body {
+    background-color: var(--background-color);
+  }
+.container{
+  
+    height: 100vh;
+   
+}
+.loading{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+
+}
+.loadingpic {
+ 
+    display: flex;
+    justify-content:center ;
+    animation: blink 1.5s infinite;
+
+
+}
+.logosmaller{
+    display: flex;
+    justify-content:center ;
+   
+}
+
+.logosmaller img {
+
+    animation-name: smaller;
+    animation-duration: 4s;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+}
+
+.loadingform {
+   
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.form{
+
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Add this line to center items horizontally */
+    width: 30%;
+    animation: form-appear 1s forwards;
+    animation-delay: 5s; 
+    animation-fill-mode: forwards;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.form input {
+    height: 46px;
+    width: 100%;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    border: none; /* Remove the border */
+}
+
+.form a{
+    height: 60px;
+    width:50%;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    border: none; /* Remove the border */
+    margin-top: 10vh;
+    text-align: center;
+    font-size: 35px;
+    text-decoration: none; /* Remove the hyperlink underline */
+    color: inherit; /* Inherit the text color from the parent element */
+}
+
+
+.form p {
+    width: 100%;
+    text-align: left; /* Align the <p> element to the left/start */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #000000;
+  }
+
+  .age{
+   
+    padding-left: 1vw;
+    padding-right: 1vw;
+
+  }
+  .gender{
+    height: 46px;
+    width: 100%;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    border: none; /* Remove the border */
+    padding-left: 1vw;
+    padding-right: 1vw;
+
+  }
+  @media only screen and (max-width:800px)  {
+    .age{
+   
+        padding-left: 2vw;
+    
+      }
+      .gender{
+   
+        padding-left: 2vw;
+    
+      }
+    .form{
+
+   
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; /* Add this line to center items horizontally */
+        width: 50%;
+        animation: form-appear 1s forwards;
+        animation-delay: 5s; 
+        animation-fill-mode: forwards;
+        opacity: 0;
+        transition: opacity 0.5s;
+    }
+    .logosmaller img {
+
+        animation-name: smaller2;
+        animation-duration: 4s;
+        animation-delay: 3s;
+        animation-fill-mode: forwards;
+    }
+  }

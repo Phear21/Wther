@@ -1,0 +1,43 @@
+<div class="navcover">
+    <div class="nav">
+        <div class="logo">
+            <img src="../assets/iwthernoi 1.svg" alt="">
+        </div>
+    
+        <div class="button">
+            <div class="btn-live">
+                <a routerLink="/home" >วันนี้</a>
+            </div>
+        
+            <div class="btn-hour">
+                <a routerLink="/hour" >รายชั่วโมง</a>
+            </div>
+        
+            <div class="btn-weekly">
+                <a routerLink="/weekly">รายสัปดาห์</a>
+            </div>
+        </div>
+     
+        <div class="searchcover">
+            <div class="serach-box">
+                <input type="text" placeholder="Search.." name="search" [(ngModel)]="searchTerm" (keydown.enter)="search()">
+                <img src="../assets/search-icon.svg" alt="search icon" type="submit" (click)="search()" class="search-btn">
+            </div>
+        </div>
+  
+    
+        <div class="lang">
+            <div class="btn-thai">
+                <img href="#" src="../assets/Thai.svg" alt="Thai page" type="submit">
+            </div>
+        
+            <div class="btn-en">
+                <img href="#" src="../assets/Eng.svg" alt="Eng page" type="submit">
+            </div>
+        </div>
+
+        
+  
+    </div>
+</div>
+

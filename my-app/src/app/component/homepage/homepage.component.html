@@ -1,0 +1,140 @@
+<div class="home" >
+
+
+  <app-nav-bar></app-nav-bar>
+ 
+<div class="container">
+    <div class="live">
+        <div class="live-info-box">
+            <div class="live-info">
+              <div class="top-live">
+                <img [src]="getWeatherImage(weatherAPI.condition.text,currentTime )" alt="">
+                
+                <div class="temperaturebox">
+                  <div class="temperature">
+                    <p class="temperature-data">
+                      {{ this.weatherAPI.current.temp_c }}
+                    </p>
+                    <span>
+                      &nbsp;&#8451;
+                    </span>
+                  </div>
+
+                  <div class="weather-detail">
+                    <p>  {{ weatherAPI.condition.text}} </p>
+                </div>
+
+                </div>
+                
+              </div>
+    
+            </div>
+       
+          
+        </div>
+  
+      <div class="right-data">
+        <span class="country">
+          {{ weatherAPI.location.name}} ,{{ weatherAPI.location.country}}
+        </span>
+        <span class="time">
+          {{ dateTime | date:'hh:mm:ss a zzzz' }}
+        </span>
+        
+      </div>
+ 
+    </div>
+  </div>
+
+  <div class="container"><div class="bottom-data">
+    <div  class="today-weather">
+
+      <div class="today-word">
+          สภาพอากาศวันนี้
+        <p>
+          {{ weatherAPI.location.name}} ,{{ weatherAPI.location.country}}
+        </p>
+      </div>
+
+        <div  class="hourly-weater">
+   
+          <app-weather-box *ngFor="let data of weatherData" [title]="data.title" [temperature]="data.temperature" [condition]="data.condition" [boxStyles]="data.boxStyles"  [imageSrc]="data.imageSrc"></app-weather-box> 
+      </div>
+   
+
+    </div>
+    <div class="recommended">
+      <div class="recommended-item">
+        <div class="recomend-box">
+          สิ่งของที่แนะนำ
+          <ng-container *ngFor="let item of getRecommenedItems(weatherAPI.condition.text)">
+            <img [src]="item" alt=""/>
+          </ng-container>
+        </div>
+     
+      </div>
+      <div class="more-detaibox">
+        <div class="more-detail">
+          <div class="grid-item">
+            <div class="grid-left">
+              <h3>
+                ดัชนีรังสี UV
+              </h3> 
+                <p>
+                  {{ weatherAPI.uv}} out of 10
+                </p>              
+            </div>
+            <div  class="grid-right">
+              <img src="../assets/Sunny.svg" alt="">
+            </div>
+          
+          </div>
+          <div class="grid-item">
+            <div class="grid-left">
+              <h3>
+                ความชื้น
+              </h3> 
+                <p>
+                  {{ weatherAPI.humidity}} %
+                </p>              
+            </div>
+            <div  class="grid-right">
+              <img src="../assets/Rain.svg" alt="">
+            </div>
+          
+          </div>
+          <div class="grid-item">
+            <div class="grid-left">
+              <h3>
+                แรงลม {{ weatherAPI.wind_dir}}
+              </h3> 
+                <p>
+                  {{ weatherAPI.wind_kph}} km/h
+                </p>              
+            </div>
+            <div  class="grid-right">
+              <img src="../assets/Wind.svg" alt="">
+            </div>
+           
+          </div>
+          <div class="grid-item">
+            <div class="grid-left">
+              <h3>
+                เมฆปกคลุม
+              </h3> 
+                <p>
+                  {{ weatherAPI.cloud}}%
+                </p>              
+            </div>
+            <div  class="grid-right">
+              <img src="../assets/Storm.svg" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div></div>
+  
+
+</div>

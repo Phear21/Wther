@@ -1,0 +1,21 @@
+
+<div class="item-box" >
+    <div class="top">
+    
+  
+    </div>
+  
+      <div class="box-content" [ngStyle]="boxStyles">
+      
+        <img [src]="getFirstImg()" alt="First Image" *ngIf="getFirstImg()">
+        <img [src]="getSecondImg()" alt="Second Image" *ngIf="getSecondImg()">
+        <img [src]="getThirdImg()" alt="Third Image" *ngIf="getThirdImg()">
+    
+       
+     
+      </div>
+      <p class="time"> {{ time }}</p>
+      
+  
+  
+  </div>
